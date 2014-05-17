@@ -19,6 +19,9 @@ class TestTranslationRules(unittest.TestCase):
     def test_META_removal(self):
         wikimedia = translate_twiki_to_wiki('%META foo%')
         self.assertEqual(wikimedia, '')
+    def test_div_removal(self):
+        wikimedia = translate_twiki_to_wiki('<div>foo</div>')
+        self.assertEqual(wikimedia, 'foo')
 
     def test_bold(self):
         wikimedia = translate_twiki_to_wiki('foo *bold* string')
