@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+    {% block title %}Convert To Twiki{% endblock %}
+{% block content %}
+<H2>Twiki input:</H2>
+<form action="" method=post>
+	<H3>Twiki text to convert:</H3>
+    <p><textarea cols="100" rows="20" name="twikiInput">{{ input }}</textarea>
+    <p><input type=submit value="Convert to Wiki">
+</form>
+
+<H3>wiki output:</H3>
+<textarea cols="100" rows="20" name="ouput">{{ output }}</textarea>
+{% endblock %}
