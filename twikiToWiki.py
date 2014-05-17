@@ -28,7 +28,7 @@ rules = (
     (r'''^%META.*''', r''),  # Remove meta tags
     (r'''</div>''', r''),  # Remove div tags
     (r'''<div(?: [^>]*)?>''', r''),  # Remove div tags
-    (r'''\!([A-Z]{1}\w+?[A-Z]{1})''', r"""\1"""),  # remove ! from Twiki words.
+    (r'''( )(!)(\w+)''', r"""\1\3"""),  # remove ! from Twiki words.
 
     # Formatting
     (r'''(^|[\s\(])\*([^ ].*?[^ ])\*([\s\)\.\,\:\;\!\?]|$)''', r"""\1'''\2'''\3"""), # bold
