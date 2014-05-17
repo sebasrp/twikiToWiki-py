@@ -26,8 +26,10 @@ rules = (
     (r'''^%STOPINCLUDE%''', r''),
     (r'''^%SEARCH{[^}]*}%''', r''), # Remove SEARCH macro
     (r'''^%META.*''', r''),  # Remove meta tags
-    (r'''</div>''', r''),  # Remove div tags
-    (r'''<div(?: [^>]*)?>''', r''),  # Remove div tags
+    (r'''</div>''', r''),  # Remove closing div tags
+    (r'''<div(?: [^>]*)?>''', r''),  # Remove opening div tags
+    (r'''<noautolink(?: [^>]*)?>''', r''),  # Remove opening noautolink tags
+    (r'''</noautolink>''', r''),  # Remove closing noautolink tags
     (r'''( )(!)(\w+)''', r"""\1\3"""),  # remove ! from Twiki words.
 
     # Formatting
