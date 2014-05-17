@@ -78,6 +78,8 @@ rules = (
     (r'''(^|[\n\r])[ ]{30}[0-9]\.? ''', r"""\1########## """),  # level 10 bullet
     (r'''(^|[\n\r])[ ]{3}\$ ([^:]*)''', r"""\1; \2 """), # $ definition: term
     (r'''^[\s]+''', r''),
+    # Verbatim
+    (r'''<verbatim>(.*)</verbatim>''', r'<pre>\1</pre>'),
 )
 
 def translate_twiki_to_wiki(line):
