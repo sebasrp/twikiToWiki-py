@@ -81,6 +81,8 @@ rules = (
     (r'''^[\s]+''', r''),
     # Verbatim
     (r'''<verbatim>(.*)</verbatim>''', r'<pre>\1</pre>'),
+    (r'''<verbatim>''', r'<pre>'),
+    (r'''</verbatim>''', r'</pre>'),
 )
 
 def translate_twiki_to_wiki(line):

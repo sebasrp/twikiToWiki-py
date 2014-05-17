@@ -177,6 +177,12 @@ class TestTranslationRules(unittest.TestCase):
     def test_verbatim_pre(self):
         wikimedia = translate_twiki_to_wiki('<verbatim>foo</verbatim>')
         self.assertEqual(wikimedia,'<pre>foo</pre>')
+    def test_verbatim_pre_opening(self):
+        wikimedia = translate_twiki_to_wiki('<verbatim>foo')
+        self.assertEqual(wikimedia,'<pre>foo')
+    def test_verbatim_pre_closing(self):
+        wikimedia = translate_twiki_to_wiki('foo</verbatim>')
+        self.assertEqual(wikimedia,'foo</pre>')
 
     def test_definition_term(self):
         wikimedia = translate_twiki_to_wiki('   $ foo: bar')
