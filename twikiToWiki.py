@@ -48,6 +48,7 @@ rules = (
     # Links
     (r'''\[\[(https?:.*?)]\[(.*?)]]''', r"""[\1 \2]"""),  # external link [[http:...][label]]
     (r'''\[\[((?!http).*?)]\[(.*?)]]''', r"""[[\1 | \2]]"""),  # internal link [[http:...][label]]
+    (r'''<a .* href="(.*?)".*>(.*)</a>''', r"""[\1 \2]"""), # external link
     # Bullets
     (r'''(^|[\n\r])[ ]{3}\* ''', r"""\1* """),  # level 1 bullet
     (r'''(^|[\n\r])[\t]{1}\* ''', r"""\1* """),  # level 1 bullet: Handle single tabs (from twiki .txt files)

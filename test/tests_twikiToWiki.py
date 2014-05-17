@@ -90,6 +90,9 @@ class TestTranslationRules(unittest.TestCase):
     def test_link_internal_explicit_aliased(self):
         wikimedia = translate_twiki_to_wiki('[[foo][foo bar]]')
         self.assertEqual(wikimedia, '[[foo | foo bar]]')
+    def test_link_external_html(self):
+        wikimedia = translate_twiki_to_wiki('link: <a target="_blank" href="https://www.foo.com">bar</a>')
+        self.assertEqual(wikimedia,'link: [https://www.foo.com bar]')
 
     def test_bullet1(self):
         wikimedia = translate_twiki_to_wiki('   * foo')
